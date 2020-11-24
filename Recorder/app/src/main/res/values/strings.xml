@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Recorder</string>
-    <string name="db_tableName_records">Records</string>
+    <string name="db_tableName_records">RECORDS</string>
     <string name="main_TVTotal_ph">Unable to load data</string>
-    <string name="main_tv_input">Input amount of water in liters:</string>
+    <string name="main_tv_input">Input amount of water in liters:\n(positive to add, negative to sub)</string>
     <string name="main_b_submit">Submit</string>
     <string name="main_tv_disclaimer">I\'m very bad in design, sorry</string>
+    <string name="main_tv_total">Total: %s</string>
 </resources>

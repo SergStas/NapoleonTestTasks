@@ -12,7 +12,7 @@ class OpenHelper constructor(context: Context?, private val name: String) :
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        val request = "CREATE TABLE $name (ID INTEGER PRIMARY KEY AUTOINCREMENT, DELTA INTEGER NOT NULL DEFAULT 0)"
+        val request = "CREATE TABLE $name (ID INTEGER PRIMARY KEY AUTOINCREMENT, DELTA DOUBLE NOT NULL DEFAULT 0)"
         db.execSQL(request)
     }
 
