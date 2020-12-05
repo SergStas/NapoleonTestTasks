@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">hw_2_activities_05_12_20</string>
+    <string name="tv_label">Input your number:</string>
+    <string name="b_double">Go doubling</string>
+    <string name="toast_no_input">Please, first enter your number</string>
+    <string name="tv_double_newNum">Your new number is %s</string>
+    <string name="tv_double_fail">Something wrong</string>
+    <string name="b_back">Back</string>
+</resources>
