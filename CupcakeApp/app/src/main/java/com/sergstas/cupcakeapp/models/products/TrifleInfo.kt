@@ -9,5 +9,6 @@ data class TrifleInfo(
     override val name: String,
     override val description: String,
     override val price: Double,
-    override val composition: Composition
+    override val composition: Composition,
+    override val url: String
 ): ProductInfo()

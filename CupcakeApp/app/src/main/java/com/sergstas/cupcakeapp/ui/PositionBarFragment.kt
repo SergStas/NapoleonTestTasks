@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.sergstas.cupcakeapp.InfoActivity
 import com.sergstas.cupcakeapp.OrderActivity
 import com.sergstas.cupcakeapp.R
 import com.sergstas.cupcakeapp.models.abstracts.ProductInfo
+import com.sergstas.cupcakeapp.models.products.CakeInfo
 import kotlinx.android.synthetic.main.fragment_position_bar.view.*
 
 class PositionBarFragment : Fragment(R.layout.fragment_position_bar) {
@@ -37,7 +39,14 @@ class PositionBarFragment : Fragment(R.layout.fragment_position_bar) {
             view.posBar_bSelect.setOnClickListener {
                 startActivity(Intent(context, OrderActivity::class.java).apply {
                     putExtra(OrderActivity.PRODUCT_ARG, _productInfo)
-            })}
+                })
+            }
+
+            view.posBar_bInfo.setOnClickListener {
+                startActivity(Intent(context, InfoActivity::class.java).apply {
+                    putExtra(InfoActivity.PRODUCT_ARG, _productInfo)
+                })
+            }
         }
     }
 }

@@ -8,4 +8,5 @@ abstract class ProductInfo: Parcelable {
     abstract val description: String
     abstract val price: Double
     abstract val composition: Composition
+    abstract val url: String
 }
