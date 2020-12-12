@@ -17,13 +17,15 @@
 
     <ImageView
         android:id="@+id/info_image"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/info_description"
         app:layout_constraintTop_toBottomOf="@id/info_title"
+        android:scaleType="centerCrop"
 
-        android:minHeight="200dp"/>
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/info_description"
@@ -34,7 +36,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/info_title"
 
-        android:minHeight="200dp"/>
+        android:minHeight="150dp"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/info_tvComposition"
@@ -44,7 +47,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/info_image"
 
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/info_tvBiscuit"
@@ -54,7 +58,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/info_tvComposition"
 
-        android:layout_marginStart="20dp"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/info_tvCream"
@@ -64,7 +69,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/info_tvBiscuit"
 
-        android:layout_marginStart="20dp"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/info_tvFilling"
@@ -74,7 +80,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/info_tvCream"
 
-        android:layout_marginStart="20dp"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/info_tvPriceLabel"
@@ -84,7 +91,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/info_tvFilling"
 
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/info_tvPrice"
@@ -94,7 +102,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/info_tvPriceLabel"
 
-        android:layout_marginStart="20dp"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/info_bBack"
@@ -102,7 +111,8 @@
         android:layout_height="wrap_content"
         android:text="@string/bBack"
         app:layout_constraintTop_toBottomOf="@id/info_tvPrice"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/info_bOrder"
@@ -112,7 +122,8 @@
         app:layout_constraintTop_toBottomOf="@id/info_tvPrice"
         app:layout_constraintStart_toEndOf="@id/info_bBack"
 
-        android:layout_marginStart="20dp"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"/>
 
 
 

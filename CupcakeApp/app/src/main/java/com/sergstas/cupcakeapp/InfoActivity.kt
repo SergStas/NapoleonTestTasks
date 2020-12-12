@@ -7,9 +7,8 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.sergstas.cupcakeapp.models.abstracts.ProductInfo
 import com.sergstas.cupcakeapp.models.products.CakeInfo
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_info.*
-import java.io.InputStream
-import java.net.URL
 
 
 class InfoActivity: AppCompatActivity() {
@@ -32,15 +31,7 @@ class InfoActivity: AppCompatActivity() {
             info_title.text = _productInfo!!.name
             info_description.text = _productInfo!!.description
 
-            val drawable = try {
-                Log.d("InfoActivity", "Drawable init has started")
-                val stream= URL(_productInfo!!.url).content as InputStream
-                Log.d("InfoActivity", "Stream has been opened")
-                var result = Drawable.createFromStream(stream, null)
-                Log.d("InfoActivity", "Drawable created successfully")
-                result
-            } catch (e: Exception) {null}
-            info_image.setImageDrawable(drawable) //TODO: debug
+            Picasso.get().load(_productInfo?.url).into(info_image)
 
             info_tvPriceLabel.text = getString(
                 if (_productInfo is CakeInfo) R.string.info_tvPriceLabel_amt
@@ -52,16 +43,18 @@ class InfoActivity: AppCompatActivity() {
             info_tvBiscuit.text = _productInfo?.composition?.biscuit
             info_tvFilling.text = _productInfo?.composition?.filling
 
-            info_bBack.setOnClickListener {
-                finish()
-            }
+            setListeners()
+        }
+    }
 
-            info_bOrder.setOnClickListener {
-                startActivity(Intent(this, OrderActivity::class.java).apply {
-                    putExtra(OrderActivity.PRODUCT_ARG, _productInfo)
-                })
-                finish()
-            }
+    private fun setListeners() {
+        info_bBack.setOnClickListener {finish()}
+
+        info_bOrder.setOnClickListener {
+            startActivity(Intent(this, OrderActivity::class.java).apply {
+                putExtra(OrderActivity.PRODUCT_ARG, _productInfo)
+            })
+            finish()
         }
     }
 }

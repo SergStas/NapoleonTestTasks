@@ -11,6 +11,9 @@ import com.sergstas.cupcakeapp.OrderActivity
 import com.sergstas.cupcakeapp.R
 import com.sergstas.cupcakeapp.models.abstracts.ProductInfo
 import com.sergstas.cupcakeapp.models.products.CakeInfo
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_info.*
+import kotlinx.android.synthetic.main.fragment_position_bar.*
 import kotlinx.android.synthetic.main.fragment_position_bar.view.*
 
 class PositionBarFragment : Fragment(R.layout.fragment_position_bar) {
@@ -41,6 +44,8 @@ class PositionBarFragment : Fragment(R.layout.fragment_position_bar) {
                     putExtra(OrderActivity.PRODUCT_ARG, _productInfo)
                 })
             }
+
+            Picasso.get().load(_productInfo?.url).into(posBar_image)
 
             view.posBar_bInfo.setOnClickListener {
                 startActivity(Intent(context, InfoActivity::class.java).apply {
