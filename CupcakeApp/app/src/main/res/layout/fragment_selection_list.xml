@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SelectionListActivity">
+    tools:context=".ui.SelectionListFragment"
+    android:padding="20dp">
 
     <ScrollView
         android:id="@+id/sl_scroll"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         app:layout_constraintVertical_weight="8"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/sl_navigationBarHolder">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/sl_assortment_list"
@@ -21,15 +21,5 @@
             android:orientation="vertical"/>
 
     </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/sl_navigationBarHolder"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintVertical_weight="2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sl_scroll"
-        app:layout_constraintStart_toStartOf="parent"
-        android:orientation="vertical"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

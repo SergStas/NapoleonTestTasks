@@ -1,14 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.PositionBarFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    <!-- TODO: Update blank fragment layout -->
+    android:padding="30dp">
+
     <TextView
+        android:id="@+id/posBar_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="@string/tv_noData"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
 
-</FrameLayout>
+        android:layout_marginHorizontal="50dp"
+        android:minHeight="40dp"/>
+
+    <ImageView
+        android:id="@+id/posBar_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/posBar_title"
+        app:layout_constraintEnd_toStartOf="@id/posBar_description"
+        android:background="@color/colorImgBack"
+
+        app:layout_constraintHorizontal_weight="4"
+        android:minHeight="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <TextView
+        android:id="@+id/posBar_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/posBar_title"
+        app:layout_constraintStart_toEndOf="@id/posBar_image"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_weight="5"
+        android:minHeight="100dp"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/posBar_bSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/posBar_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/posBar_bSelect"
+
+        android:layout_marginTop="10dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
