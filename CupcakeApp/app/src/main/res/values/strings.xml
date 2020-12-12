@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CupcakeApp</string>
+    <string name="ot_bDefault">Выбрать</string>
+    <string name="tv_noData">---</string>
+    <string name="posBar_bSelect">Заказать</string>
+    <string name="form_bConfirm">Отправить</string>
+    <string name="dialog_bConfirm">Готово</string>
+    <string name="posBar_description_pattern">Описание: %s\nЦена: %s</string>
+    <string name="posBar_bInfo">Подробнее</string>
+</resources>

@@ -15,6 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
 
         android:layout_marginHorizontal="50dp"
+        android:background="@color/colorImgBack"
         android:minHeight="40dp"/>
 
     <ImageView
@@ -24,9 +25,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/posBar_title"
         app:layout_constraintEnd_toStartOf="@id/posBar_description"
-        android:background="@color/colorImgBack"
 
         app:layout_constraintHorizontal_weight="4"
+        android:background="@color/colorImgBack"
         android:minHeight="150dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"/>
@@ -40,17 +41,34 @@
         app:layout_constraintEnd_toEndOf="parent"
 
         app:layout_constraintHorizontal_weight="5"
+        android:background="@color/colorImgBack"
         android:minHeight="100dp"
         android:layout_marginTop="20dp"/>
 
     <Button
         android:id="@+id/posBar_bSelect"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/posBar_description"
+        app:layout_constraintStart_toEndOf="@id/posBar_bInfo"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/posBar_bSelect"
 
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:background="@color/colorImgBack"/>
+
+    <Button
+        android:id="@+id/posBar_bInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/posBar_description"
+        app:layout_constraintEnd_toStartOf="@id/posBar_bSelect"
+        app:layout_constraintStart_toEndOf="@id/posBar_image"
+        android:text="@string/posBar_bInfo"
+
+        android:layout_marginTop="10dp"
+        android:background="@color/colorImgBack"
+        android:layout_marginStart="20dp"
+        android:layout_marginRight="20dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

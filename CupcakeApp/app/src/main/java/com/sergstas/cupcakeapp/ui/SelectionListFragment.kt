@@ -10,29 +10,17 @@ import com.sergstas.cupcakeapp.R
 import com.sergstas.cupcakeapp.models.Composition
 import com.sergstas.cupcakeapp.models.products.CakeInfo
 
-class SelectionListFragment : Fragment() {
-    companion object {
-        private val _exampleItem = CakeInfo(
-            "Наполеон",
-            "Простой в приготовлении и очень вкусный торт на шоколадных коржах, с масляным кремом и шоколадной крошкой",
-            765.50,
-            Composition("Шоколадный корж", "Масляный крем", "Малиновое конфи")
-        )
+class SelectionListFragment : Fragment(R.layout.fragment_selection_list) {
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        loadExample()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_selection_list, container, false)
-        loadExampleItem()
-        return view
-    }
-
-    private fun loadExampleItem() {
+    private fun loadExample() {
         requireFragmentManager().beginTransaction()
-            .add(R.id.sl_assortment_list, PositionBarFragment.newInstance(_exampleItem))
+            .add(R.id.sl_assortment_list, PositionBarFragment.newInstance(CakeInfo.exampleInstance))
             .commit()
     }
 }

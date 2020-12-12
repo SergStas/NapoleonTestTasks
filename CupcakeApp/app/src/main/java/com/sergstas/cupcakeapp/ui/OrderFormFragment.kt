@@ -12,7 +12,7 @@ import com.sergstas.cupcakeapp.models.abstracts.ProductInfo
 import kotlinx.android.synthetic.main.activity_order.*
 import kotlinx.android.synthetic.main.fragment_order_form.view.*
 
-class OrderFormFragment: Fragment() {
+class OrderFormFragment: Fragment(R.layout.fragment_order_form) {
     companion object {
         private const val PRODUCT_ARG = "PRODUCT"
 
@@ -26,15 +26,11 @@ class OrderFormFragment: Fragment() {
 
     private var _product: ProductInfo? = null
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_order_form, container, false)
-        _product = arguments?.getParcelable(PRODUCT_ARG) //TODO: use it
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        _product = arguments?.getParcelable(PRODUCT_ARG)
         setView(view)
-        return view
     }
 
     private fun setView(view: View) {

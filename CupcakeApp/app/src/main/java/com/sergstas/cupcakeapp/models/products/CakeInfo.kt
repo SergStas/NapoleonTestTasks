@@ -10,4 +10,13 @@ data class CakeInfo(
     override val description: String,
     override val price: Double,
     override val composition: Composition
-) : ProductInfo()
+) : ProductInfo() {
+    companion object {
+        val exampleInstance = CakeInfo(
+            "Наполеон",
+            "Простой в приготовлении и очень вкусный торт на шоколадных коржах, с масляным кремом и шоколадной крошкой",
+            765.50,
+            Composition("Шоколадный корж", "Масляный крем", "Малиновое конфи")
+        )
+    }
+}
