@@ -12,4 +12,25 @@
     <string name="bBack">Назад</string>
     <string name="info_tvPriceLabel_amt">Цена за кг:</string>
     <string name="info_tvPriceLabel_cnt">Цена за шт:</string>
+    <string name="form_tvName">Имя заказчика:</string>
+    <string name="form_editName_hints">Имя и фамилия</string>
+    <string name="form_tvAmount">Масса торта:</string>
+    <string name="form_editDate_hints">dd.mm.yyyy</string>
+    <string name="form_tvDate">На какое число заказать:</string>
+    <string name="form_editAmount_hints">От 1,5кг</string>
+    <string name="form_tvContact">Как с вами можно связаться:</string>
+    <string name="form_editContact_hints">Номер телефона или ссылка на мессенджер</string>
+    <string name="form_tvBDate">Ваш день рождения (не обязательно):</string>
+    <string name="form_editExtra_hint">Отдельные моменты, которые вы хотели бы проговорить</string>
+    <string name="form_tvExtra">Дополнительные пожелания (не обязательно):</string>
+    <string name="form_toast_contactsIsNull">Укажите вашу контактную информацию, без нее я не смогу с вами связаться</string>
+    <string name="form_toast_dateFormat">Неверный формат даты</string>
+    <string name="form_toast_dateIsNull">Пожалуйста, укажите дату заказа</string>
+    <string name="form_toast_cakeMassValue">Некорректное значение массы торта (минимум - 1,5кг)</string>
+    <string name="form_toast_productAmount">Некорректное количество %s, пожалуйста выберите любой из предложенных вариантов</string>
+    <string name="amount_OF_TRIFLES">трайфлов</string>
+    <string name="amount_OF_CUPCAKES">капкейков</string>
+    <string name="form_toast_amountFormat">Неверный формат количества/массы</string>
+    <string name="form_toast_amountIsNull">Пожалуйста, укажите количество/массу продукта</string>
+    <string name="form_toast_nameIsNull">Пожалуйста, укажите свое имя</string>
 </resources>

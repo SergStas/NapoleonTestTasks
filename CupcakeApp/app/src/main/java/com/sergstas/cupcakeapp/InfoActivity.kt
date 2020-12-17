@@ -1,10 +1,9 @@
 package com.sergstas.cupcakeapp
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.sergstas.cupcakeapp.features.order.OrderActivity
 import com.sergstas.cupcakeapp.models.abstracts.ProductInfo
 import com.sergstas.cupcakeapp.models.products.CakeInfo
 import com.squareup.picasso.Picasso

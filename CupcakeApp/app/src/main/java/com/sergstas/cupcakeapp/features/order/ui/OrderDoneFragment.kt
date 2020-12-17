@@ -1,4 +1,4 @@
-package com.sergstas.cupcakeapp.ui
+package com.sergstas.cupcakeapp.features.order.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

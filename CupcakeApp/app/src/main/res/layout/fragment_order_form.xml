@@ -7,12 +7,86 @@
     android:padding="25dp">
 
     <TextView
-        android:id="@+id/form_tvTodo"
+        android:id="@+id/form_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TODO: input fields"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
 
         android:layout_marginBottom="20dp"/>
+    
+    <TextView
+        android:id="@+id/form_tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/form_tvName"/>
+
+    <EditText
+        android:id="@+id/form_editName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/form_editName_hints"/>
+
+    <TextView
+        android:id="@+id/form_tvAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/form_tvAmount"/>
+
+    <EditText
+        android:id="@+id/form_editAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/form_editAmount_hints"
+        android:inputType="numberDecimal"/>
+
+    <TextView
+        android:id="@+id/form_tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/form_tvDate"/>
+
+    <EditText
+        android:id="@+id/form_editDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/form_editDate_hints"/>
+
+    <TextView
+        android:id="@+id/form_tvContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/form_tvContact"/>
+
+    <EditText
+        android:id="@+id/form_editContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/form_editContact_hints"/>
+
+    <TextView
+        android:id="@+id/form_tvBDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/form_tvBDate"/>
+
+    <EditText
+        android:id="@+id/form_editBDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/form_editDate_hints"
+        android:inputType="numberDecimal"/>
+
+    <TextView
+        android:id="@+id/form_tvExtras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/form_tvExtra"/>
+
+    <EditText
+        android:id="@+id/form_editExtra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/form_editExtra_hint"/>
 
     <Button
         android:id="@+id/form_bSend"
