@@ -37,7 +37,7 @@ class MenuAdapter(
 
     private fun setItemView(product: ProductInfo, holder: ViewHolder) {
         holder.posBar_title.text = product.name
-        holder.posBar_description.text = String.format("%s\n%s", //TODO: access to string resources
+        holder.posBar_description.text = String.format(holder.containerView.context.getString(R.string.posBar_description_pattern),
             product.description, product.price)
 
         holder.posBar_bSelect.setOnClickListener {onClickSelect(product)}
