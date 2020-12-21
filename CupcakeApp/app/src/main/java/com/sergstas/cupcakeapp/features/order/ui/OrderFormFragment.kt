@@ -13,8 +13,11 @@ import com.sergstas.cupcakeapp.models.products.CakeInfo
 import com.sergstas.cupcakeapp.models.products.TrifleInfo
 import kotlinx.android.synthetic.main.fragment_order_form.*
 import kotlinx.android.synthetic.main.fragment_order_form.view.*
+import moxy.MvpAppCompatDialogFragment
+import moxy.MvpAppCompatFragment
+import moxy.ktx.moxyPresenter
 
-class OrderFormFragment: Fragment(R.layout.fragment_order_form), OrderView {
+class OrderFormFragment: MvpAppCompatFragment(R.layout.fragment_order_form), OrderView {
     companion object {
         private const val PRODUCT_ARG = "PRODUCT"
 
@@ -27,32 +30,27 @@ class OrderFormFragment: Fragment(R.layout.fragment_order_form), OrderView {
     }
 
     private var _product: ProductInfo? = null
-    private lateinit var _presenter: OrderPresenter
+    private val _presenter: OrderPresenter by moxyPresenter {
+        OrderPresenter(arguments?.getParcelable(PRODUCT_ARG)!!)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         _product = arguments?.getParcelable(PRODUCT_ARG)
-        _presenter = OrderPresenter(this, _product!!)
         setView(view)
     }
 
     private fun setView(view: View) {
         view.form_bSend.setOnClickListener {
-            if (_presenter.validate(
-                    form_editName.text.toString(),
-                    form_editAmount.text.toString(),
-                    form_editDate.text.toString(),
-                    form_editContact.text.toString(),
-                    form_editBDate.text.toString(),
-                    form_editExtra.text.toString()
-                ))
-                requireFragmentManager().beginTransaction()
-                    .replace(
-                        R.id.order_container,
-                        OrderDoneFragment()
-                    )
-                    .commit()
+            _presenter.processSendOnClick(
+                form_editName.text.toString(),
+                form_editAmount.text.toString(),
+                form_editDate.text.toString(),
+                form_editContact.text.toString(),
+                form_editBDate.text.toString(),
+                form_editExtra.text.toString()
+            )
         }
     }
 
@@ -72,6 +70,15 @@ class OrderFormFragment: Fragment(R.layout.fragment_order_form), OrderView {
             ValidationError.AMOUNT_IS_NULL -> getString(R.string.form_toast_amountIsNull)
             ValidationError.NAME_IS_NULL -> getString(R.string.form_toast_nameIsNull)
         }
+
         Toast.makeText(activity, text, Toast.LENGTH_LONG).show()
+    }
+
+    override fun showDoneAnnotation() {
+        requireFragmentManager().beginTransaction()
+            .replace(
+                R.id.order_container,
+                OrderDoneFragment()
+            ).commit()
     }
 }
