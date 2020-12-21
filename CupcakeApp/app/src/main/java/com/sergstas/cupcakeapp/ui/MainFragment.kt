@@ -6,16 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sergstas.cupcakeapp.R
+import com.sergstas.cupcakeapp.features.menu.ui.MenuFragment
+import com.sergstas.cupcakeapp.models.ProductType
 import kotlinx.android.synthetic.main.fragment_main_menu.view.*
 
-class MainMenuFragment: Fragment(R.layout.fragment_main_menu) {
+class MainFragment: Fragment(R.layout.fragment_main_menu) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         view.menu_bDefault.setOnClickListener {
             requireFragmentManager()
-                .beginTransaction().replace(R.id.main_container, SelectionListFragment())
+                .beginTransaction().replace(R.id.main_container, MenuFragment.newInstance(ProductType.CAKE))
                 .commit()
         }
     }

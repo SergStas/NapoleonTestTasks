@@ -2,7 +2,7 @@ package com.sergstas.cupcakeapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.sergstas.cupcakeapp.ui.MainMenuFragment
+import com.sergstas.cupcakeapp.ui.MainFragment
 
 class MainActivity : AppCompatActivity() { //TODO: set productType spinner
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() { //TODO: set productType spinner
         setContentView(R.layout.activity_main)
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_container,
-                MainMenuFragment()
+                MainFragment()
             )
             .commit()
     }

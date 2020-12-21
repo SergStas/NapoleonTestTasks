@@ -1,4 +1,4 @@
-package com.sergstas.cupcakeapp.ui
+package com.sergstas.cupcakeapp.features.menu.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -28,8 +28,12 @@ class PositionBarFragment : Fragment(R.layout.fragment_position_bar) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _productInfo = arguments?.getParcelable(PRODUCT_ARG)
+        _productInfo = arguments!!.getParcelable(PRODUCT_ARG)
 
+        setView(view)
+    }
+
+    private fun setView(view: View) {
         _productInfo?.let {
             view.posBar_title.text = _productInfo!!.name
             view.posBar_description.text = String.format(getString(R.string.posBar_description_pattern),

@@ -33,4 +33,5 @@
     <string name="form_toast_amountFormat">Неверный формат количества/массы</string>
     <string name="form_toast_amountIsNull">Пожалуйста, укажите количество/массу продукта</string>
     <string name="form_toast_nameIsNull">Пожалуйста, укажите свое имя</string>
+    <string name="draft_string">str const</string>
 </resources>
