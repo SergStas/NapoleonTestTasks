@@ -3,14 +3,23 @@ package com.sergstas.cupcakeapp.models.abstracts
 import android.os.Parcelable
 import com.sergstas.cupcakeapp.models.Composition
 import com.sergstas.cupcakeapp.models.ProductType
+import kotlinx.android.parcel.Parcelize
 
-abstract class ProductInfo: Parcelable {
-    abstract val type: ProductType
-    abstract val name: String
-    abstract val description: String
-    abstract val price: Double
-    abstract val composition: Composition
-    abstract val url: String
+@Parcelize
+@kotlinx.serialization.Serializable
+class ProductInfo(val type: ProductType, val name: String, val description: String,
+                  val price: Double, val composition: Composition, val url: String
+): Parcelable {
+    companion object {
+        val exampleInstance = ProductInfo(
+            ProductType.CAKE,
+            "Наполеон",
+            "Простой в приготовлении и очень вкусный торт на шоколадных коржах, с масляным кремом и шоколадной крошкой",
+            765.50,
+            Composition("Шоколадный корж", "Масляный крем", "Малиновое конфи"),
+            "https://mykaleidoscope.ru/uploads/posts/2019-12/1575770597_41-44.jpg"
+        )
+    }
 
     override fun equals(other: Any?): Boolean {
         if (other == null || other !is ProductInfo)
