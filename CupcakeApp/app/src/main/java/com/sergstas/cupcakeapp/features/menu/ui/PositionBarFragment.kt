@@ -2,12 +2,12 @@ package com.sergstas.cupcakeapp.features.menu.ui
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.fragment.app.Fragment
 import com.sergstas.cupcakeapp.InfoActivity
-import com.sergstas.cupcakeapp.features.order.OrderActivity
 import com.sergstas.cupcakeapp.R
-import com.sergstas.cupcakeapp.models.abstracts.ProductInfo
+import com.sergstas.cupcakeapp.features.order.OrderActivity
+import com.sergstas.cupcakeapp.models.ProductInfo
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_position_bar.*
 import kotlinx.android.synthetic.main.fragment_position_bar.view.*

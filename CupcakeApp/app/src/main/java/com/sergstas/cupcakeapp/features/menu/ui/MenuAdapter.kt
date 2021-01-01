@@ -1,6 +1,5 @@
 package com.sergstas.cupcakeapp.features.menu.ui
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sergstas.cupcakeapp.R
-import com.sergstas.cupcakeapp.models.abstracts.ProductInfo
+import com.sergstas.cupcakeapp.models.ProductInfo
 import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.fragment_position_bar.*

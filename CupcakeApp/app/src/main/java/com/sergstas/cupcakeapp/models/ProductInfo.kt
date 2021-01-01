@@ -1,7 +1,6 @@
-package com.sergstas.cupcakeapp.models.abstracts
+package com.sergstas.cupcakeapp.models
 
 import android.os.Parcelable
-import com.sergstas.cupcakeapp.models.Composition
 import com.sergstas.cupcakeapp.models.ProductType
 import kotlinx.android.parcel.Parcelize
 

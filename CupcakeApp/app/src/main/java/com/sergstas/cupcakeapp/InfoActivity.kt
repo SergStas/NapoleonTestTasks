@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sergstas.cupcakeapp.features.order.OrderActivity
-import com.sergstas.cupcakeapp.models.abstracts.ProductInfo
-import com.sergstas.cupcakeapp.models.products.CakeInfo
+import com.sergstas.cupcakeapp.models.ProductInfo
+import com.sergstas.cupcakeapp.models.ProductType
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_info.*
 
@@ -33,7 +33,7 @@ class InfoActivity: AppCompatActivity() {
             Picasso.get().load(_productInfo?.url).into(info_image)
 
             info_tvPriceLabel.text = getString(
-                if (_productInfo is CakeInfo) R.string.info_tvPriceLabel_amt
+                if (_productInfo?.type == ProductType.CAKE) R.string.info_tvPriceLabel_amt
                 else R.string.info_tvPriceLabel_cnt
             )
 

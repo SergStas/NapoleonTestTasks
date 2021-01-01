@@ -1,7 +1,7 @@
-package com.sergstas.cupcakeapp.data
+package com.sergstas.cupcakeapp.features.menu.data
 
 import android.content.SharedPreferences
-import com.sergstas.cupcakeapp.models.abstracts.ProductInfo
+import com.sergstas.cupcakeapp.models.ProductInfo
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
@@ -19,5 +19,5 @@ class MenuDaoImpl(private val _sharedPreferences: SharedPreferences): MenuDao {
             }
         } ?: emptyList()
 
-    override fun getAll(): List<ProductInfo> = _products;
+    override fun getAll(): List<ProductInfo> = _products
 }

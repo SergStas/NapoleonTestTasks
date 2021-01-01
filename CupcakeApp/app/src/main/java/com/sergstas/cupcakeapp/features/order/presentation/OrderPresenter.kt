@@ -3,9 +3,8 @@ package com.sergstas.cupcakeapp.features.order.presentation
 import com.sergstas.cupcakeapp.features.order.presentation.ValidationError.*
 import com.sergstas.cupcakeapp.models.ClientInfo
 import com.sergstas.cupcakeapp.models.OrderInfo
-import com.sergstas.cupcakeapp.models.abstracts.ProductInfo
+import com.sergstas.cupcakeapp.models.ProductInfo
 import moxy.MvpPresenter
-import java.lang.Exception
 import java.sql.Date
 
 class OrderPresenter(private val _productInfo: ProductInfo): MvpPresenter<OrderView>() {

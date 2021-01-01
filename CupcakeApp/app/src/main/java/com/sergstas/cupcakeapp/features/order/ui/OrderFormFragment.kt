@@ -3,17 +3,14 @@ package com.sergstas.cupcakeapp.features.order.ui
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import com.sergstas.cupcakeapp.R
 import com.sergstas.cupcakeapp.features.order.presentation.OrderPresenter
 import com.sergstas.cupcakeapp.features.order.presentation.OrderView
 import com.sergstas.cupcakeapp.features.order.presentation.ValidationError
-import com.sergstas.cupcakeapp.models.abstracts.ProductInfo
-import com.sergstas.cupcakeapp.models.products.CakeInfo
-import com.sergstas.cupcakeapp.models.products.TrifleInfo
+import com.sergstas.cupcakeapp.models.ProductInfo
+import com.sergstas.cupcakeapp.models.ProductType
 import kotlinx.android.synthetic.main.fragment_order_form.*
 import kotlinx.android.synthetic.main.fragment_order_form.view.*
-import moxy.MvpAppCompatDialogFragment
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 
@@ -42,6 +39,7 @@ class OrderFormFragment: MvpAppCompatFragment(R.layout.fragment_order_form), Ord
     }
 
     private fun setView(view: View) {
+        view.form_title?.text = _product?.name
         view.form_bSend.setOnClickListener {
             _presenter.processSendOnClick(
                 form_editName.text.toString(),
@@ -60,10 +58,10 @@ class OrderFormFragment: MvpAppCompatFragment(R.layout.fragment_order_form), Ord
             ValidationError.DATE_FORMAT -> getString(R.string.form_toast_dateFormat)
             ValidationError.DATE_IS_NULL -> getString(R.string.form_toast_dateIsNull)
             ValidationError.MASS_INVALID_VALUE ->
-                if (_product is CakeInfo)
+                if (_product?.type == ProductType.CAKE)
                     getString(R.string.form_toast_cakeMassValue)
                 else String.format(getString(R.string.form_toast_productAmount),
-                    if (_product is TrifleInfo) getString(R.string.amount_OF_TRIFLES)
+                    if (_product?.type == ProductType.TRIFLE) getString(R.string.amount_OF_TRIFLES)
                     else getString(R.string.amount_OF_CUPCAKES)
                 )
             ValidationError.AMOUNT_FORMAT -> getString(R.string.form_toast_amountFormat)
