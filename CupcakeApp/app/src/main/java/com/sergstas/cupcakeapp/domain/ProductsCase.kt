@@ -1,15 +1,16 @@
 package com.sergstas.cupcakeapp.domain
 
-import com.sergstas.cupcakeapp.di.MenuApi
+import com.sergstas.cupcakeapp.di.CupcakeApi
 import com.sergstas.cupcakeapp.domain.models.ProductInfo
 import com.sergstas.cupcakeapp.domain.models.ProductType
+import com.sergstas.cupcakeapp.domain.models.Composition
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class GetMenuUseCase @Inject constructor(private val menuApi: MenuApi) {
+class ProductsUseCase @Inject constructor(private val cupcakeApi: CupcakeApi) {
     suspend operator fun invoke(): List<ProductInfo> = withContext(Dispatchers.IO) {
-        menuApi.getMenu().run {
+        cupcakeApi.getProducts().run {
             data?.mapNotNull { prod ->
                 val type = when (prod.typeName) {
                     "Cake" -> ProductType.CAKE

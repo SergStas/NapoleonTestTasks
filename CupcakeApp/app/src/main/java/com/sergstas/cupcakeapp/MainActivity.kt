@@ -2,7 +2,7 @@ package com.sergstas.cupcakeapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.sergstas.cupcakeapp.ui.MainFragment
+import com.sergstas.cupcakeapp.features.menu.ui.MainFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

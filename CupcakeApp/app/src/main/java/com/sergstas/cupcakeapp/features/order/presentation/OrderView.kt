@@ -1,5 +1,6 @@
 package com.sergstas.cupcakeapp.features.order.presentation
 
+import com.sergstas.cupcakeapp.features.order.presentation.enums.ValidationError
 import moxy.MvpView
 import moxy.viewstate.strategy.AddToEndStrategy
 import moxy.viewstate.strategy.SkipStrategy

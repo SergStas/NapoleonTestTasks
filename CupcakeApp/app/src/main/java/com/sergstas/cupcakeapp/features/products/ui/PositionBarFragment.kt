@@ -1,4 +1,4 @@
-package com.sergstas.cupcakeapp.features.menu.ui
+package com.sergstas.cupcakeapp.features.products.ui
 
 import android.content.Intent
 import android.os.Bundle

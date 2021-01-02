@@ -1,4 +1,4 @@
-package com.sergstas.cupcakeapp.features.menu.ui
+package com.sergstas.cupcakeapp.features.products.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +12,10 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.fragment_position_bar.*
 
-class MenuAdapter(
+class ProductsAdapter(
     private val onClickSelect: (ProductInfo) -> Unit,
     private val onClickInfo: (ProductInfo) -> Unit
-) : ListAdapter<ProductInfo, MenuAdapter.ViewHolder>(
+) : ListAdapter<ProductInfo, ProductsAdapter.ViewHolder>(
     object : DiffUtil.ItemCallback<ProductInfo>() {
         override fun areItemsTheSame(oldItem: ProductInfo, newItem: ProductInfo): Boolean =
             oldItem.name == newItem.name

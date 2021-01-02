@@ -18,7 +18,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideMenuApi(): MenuApi = Retrofit.Builder()
+    fun provideMenuApi(): CupcakeApi = Retrofit.Builder()
         .baseUrl("http://192.168.0.3/")
         .client(OkHttpClient.Builder().addInterceptor { chain ->
             val request = chain.request().newBuilder()/*.addHeader()*/.build()

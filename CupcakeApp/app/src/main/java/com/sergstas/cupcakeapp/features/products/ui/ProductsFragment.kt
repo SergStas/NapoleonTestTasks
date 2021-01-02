@@ -1,4 +1,4 @@
-package com.sergstas.cupcakeapp.features.menu.ui
+package com.sergstas.cupcakeapp.features.products.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,11 +7,11 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sergstas.cupcakeapp.InfoActivity
 import com.sergstas.cupcakeapp.R
-import com.sergstas.cupcakeapp.domain.GetMenuUseCase
+import com.sergstas.cupcakeapp.domain.ProductsUseCase
 import com.sergstas.cupcakeapp.domain.models.ProductInfo
 import com.sergstas.cupcakeapp.domain.models.ProductType
-import com.sergstas.cupcakeapp.features.menu.presentation.MenuPresenter
-import com.sergstas.cupcakeapp.features.menu.presentation.MenuView
+import com.sergstas.cupcakeapp.features.products.presentation.ProductsPresenter
+import com.sergstas.cupcakeapp.features.products.presentation.ProductsView
 import com.sergstas.cupcakeapp.features.order.OrderActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_menu.*
@@ -20,23 +20,24 @@ import moxy.ktx.moxyPresenter
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MenuFragment: MenuView, MvpAppCompatFragment(R.layout.fragment_menu) {
+class ProductsFragment: ProductsView, MvpAppCompatFragment(R.layout.fragment_menu) {
     companion object {
         private const val TYPE_KEY = "TYPE_ARG"
 
-        fun newInstance(type: ProductType) = MenuFragment().apply {
+        fun newInstance(type: ProductType) = ProductsFragment()
+            .apply {
             arguments = Bundle().apply {
                 putSerializable(TYPE_KEY, type)
             }
         }
     }
 
-    private var _adapter: MenuAdapter? = null
+    private var _adapter: ProductsAdapter? = null
 
     @Inject
-    lateinit var useCase: GetMenuUseCase
-    private val _presenter: MenuPresenter by moxyPresenter{
-        MenuPresenter(
+    lateinit var useCase: ProductsUseCase
+    private val _presenter: ProductsPresenter by moxyPresenter{
+        ProductsPresenter(
             useCase,
             arguments?.getSerializable(TYPE_KEY) as ProductType
         )
@@ -47,7 +48,7 @@ class MenuFragment: MenuView, MvpAppCompatFragment(R.layout.fragment_menu) {
 
         with(menu_rv) {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            adapter = MenuAdapter( {
+            adapter = ProductsAdapter( {
                 p -> startActivity(Intent(context, OrderActivity::class.java).apply {
                     putExtra(OrderActivity.PRODUCT_ARG, p)
                 })
