@@ -1,9 +1,9 @@
 package com.sergstas.cupcakeapp.features.order.presentation
 
+import com.sergstas.cupcakeapp.domain.models.ClientInfo
+import com.sergstas.cupcakeapp.domain.models.OrderInfo
+import com.sergstas.cupcakeapp.domain.models.ProductInfo
 import com.sergstas.cupcakeapp.features.order.presentation.ValidationError.*
-import com.sergstas.cupcakeapp.models.ClientInfo
-import com.sergstas.cupcakeapp.models.OrderInfo
-import com.sergstas.cupcakeapp.models.ProductInfo
 import moxy.MvpPresenter
 import java.sql.Date
 

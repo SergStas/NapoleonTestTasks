@@ -1,4 +1,4 @@
-package com.sergstas.cupcakeapp.models
+package com.sergstas.cupcakeapp.domain.models
 
 data class OrderInfo(
     val productInfo: ProductInfo,

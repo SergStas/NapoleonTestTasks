@@ -1,4 +1,4 @@
-package com.sergstas.cupcakeapp.models
+package com.sergstas.cupcakeapp.domain.models
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

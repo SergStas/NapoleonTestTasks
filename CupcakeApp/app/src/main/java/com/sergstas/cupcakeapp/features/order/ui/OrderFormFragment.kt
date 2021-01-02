@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.sergstas.cupcakeapp.R
+import com.sergstas.cupcakeapp.domain.models.ProductInfo
+import com.sergstas.cupcakeapp.domain.models.ProductType
 import com.sergstas.cupcakeapp.features.order.presentation.OrderPresenter
 import com.sergstas.cupcakeapp.features.order.presentation.OrderView
 import com.sergstas.cupcakeapp.features.order.presentation.ValidationError
-import com.sergstas.cupcakeapp.models.ProductInfo
-import com.sergstas.cupcakeapp.models.ProductType
 import kotlinx.android.synthetic.main.fragment_order_form.*
 import kotlinx.android.synthetic.main.fragment_order_form.view.*
 import moxy.MvpAppCompatFragment

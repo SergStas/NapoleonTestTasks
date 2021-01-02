@@ -1,11 +1,13 @@
 package com.sergstas.cupcakeapp.features.menu.presentation
 
-import com.sergstas.cupcakeapp.features.menu.data.MenuDaoImpl
-import com.sergstas.cupcakeapp.models.ProductInfo
-import com.sergstas.cupcakeapp.models.ProductType
+import com.sergstas.cupcakeapp.domain.GetMenuUseCase
+import com.sergstas.cupcakeapp.domain.models.ProductInfo
+import com.sergstas.cupcakeapp.domain.models.ProductType
+import com.sergstas.cupcakeapp.extensions.launchWithErrorHandler
 import moxy.MvpPresenter
+import moxy.presenterScope
 
-class MenuPresenter(private val _dao: MenuDaoImpl, private val _type: ProductType) : MvpPresenter<MenuView>() {
+class MenuPresenter (private val getMenuUseCase: GetMenuUseCase, private val _type: ProductType) : MvpPresenter<MenuView>() {
     private var _fullList: List<ProductInfo> = emptyList()
 
     private val _filteredProducts: List<ProductInfo>
@@ -13,7 +15,9 @@ class MenuPresenter(private val _dao: MenuDaoImpl, private val _type: ProductTyp
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        _fullList = _dao.getAll()
-        viewState.showMenu(_filteredProducts)
+        presenterScope.launchWithErrorHandler( {
+            _fullList = getMenuUseCase()
+            viewState.showMenu(_filteredProducts)
+        }, {t -> viewState.displayLoadingError(t)})
     }
 }

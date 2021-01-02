@@ -1,13 +1,12 @@
-package com.sergstas.cupcakeapp.models
+package com.sergstas.cupcakeapp.domain.models
 
 import android.os.Parcelable
-import com.sergstas.cupcakeapp.models.ProductType
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @kotlinx.serialization.Serializable
-class ProductInfo(val type: ProductType, val name: String, val description: String,
-                  val price: Double, val composition: Composition, val url: String
+class ProductInfo(val type: ProductType, val name: String, val description: String?,
+                  val price: Double, val composition: Composition, val url: String?
 ): Parcelable {
     companion object {
         val exampleInstance = ProductInfo(

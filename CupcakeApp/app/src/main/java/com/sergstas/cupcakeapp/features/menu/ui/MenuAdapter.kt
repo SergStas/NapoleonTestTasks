@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sergstas.cupcakeapp.R
-import com.sergstas.cupcakeapp.models.ProductInfo
+import com.sergstas.cupcakeapp.domain.models.ProductInfo
 import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.fragment_position_bar.*

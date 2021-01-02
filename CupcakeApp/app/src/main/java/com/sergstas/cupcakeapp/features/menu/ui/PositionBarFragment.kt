@@ -6,8 +6,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.sergstas.cupcakeapp.InfoActivity
 import com.sergstas.cupcakeapp.R
+import com.sergstas.cupcakeapp.domain.models.ProductInfo
 import com.sergstas.cupcakeapp.features.order.OrderActivity
-import com.sergstas.cupcakeapp.models.ProductInfo
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_position_bar.*
 import kotlinx.android.synthetic.main.fragment_position_bar.view.*

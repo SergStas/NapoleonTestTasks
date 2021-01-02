@@ -1,7 +1,7 @@
-package com.sergstas.cupcakeapp.features.menu.data
+package com.sergstas.cupcakeapp.data
 
 import android.content.SharedPreferences
-import com.sergstas.cupcakeapp.models.ProductInfo
+import com.sergstas.cupcakeapp.domain.models.ProductInfo
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 

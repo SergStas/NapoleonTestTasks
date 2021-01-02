@@ -1,22 +1,25 @@
 package com.sergstas.cupcakeapp.features.menu.ui
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sergstas.cupcakeapp.InfoActivity
 import com.sergstas.cupcakeapp.R
-import com.sergstas.cupcakeapp.features.menu.data.MenuDaoImpl
+import com.sergstas.cupcakeapp.di.provideMenuApi
+import com.sergstas.cupcakeapp.domain.GetMenuUseCase
+import com.sergstas.cupcakeapp.domain.models.ProductInfo
+import com.sergstas.cupcakeapp.domain.models.ProductType
 import com.sergstas.cupcakeapp.features.menu.presentation.MenuPresenter
 import com.sergstas.cupcakeapp.features.menu.presentation.MenuView
 import com.sergstas.cupcakeapp.features.order.OrderActivity
-import com.sergstas.cupcakeapp.models.ProductInfo
-import com.sergstas.cupcakeapp.models.ProductType
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_menu.*
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 
+@AndroidEntryPoint
 class MenuFragment: MenuView, MvpAppCompatFragment(R.layout.fragment_menu) {
     companion object {
         private const val TYPE_KEY = "TYPE_ARG"
@@ -30,9 +33,11 @@ class MenuFragment: MenuView, MvpAppCompatFragment(R.layout.fragment_menu) {
 
     private var _adapter: MenuAdapter? = null
 
+    /*@Inject*/
+    /*lateinit var useCase: GetMenuUseCase*/
     private val _presenter: MenuPresenter by moxyPresenter{
         MenuPresenter(
-            MenuDaoImpl(requireContext().getSharedPreferences("data", Context.MODE_PRIVATE)),
+            /*useCase*/GetMenuUseCase(provideMenuApi),
             arguments?.getSerializable(TYPE_KEY) as ProductType
         )
     }
@@ -56,6 +61,10 @@ class MenuFragment: MenuView, MvpAppCompatFragment(R.layout.fragment_menu) {
 
     override fun showMenu(products: List<ProductInfo>) {
         _adapter?.submitList(products)
+    }
+
+    override fun displayLoadingError(t: Throwable) {
+        Toast.makeText(context, "Error: ${t.message}", Toast.LENGTH_LONG).show()
     }
 }
 
