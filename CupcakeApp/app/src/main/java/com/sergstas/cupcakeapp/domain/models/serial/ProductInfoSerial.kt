@@ -24,6 +24,4 @@ data class ProductInfoSerial(
     val fillingName: String?,
     @SerialName("image")
     val image: String?
-) {
-    override fun toString(): String = "$name|$price"
-}
+)

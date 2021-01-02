@@ -5,13 +5,12 @@ import com.sergstas.cupcakeapp.domain.models.ProductInfo
 import com.sergstas.cupcakeapp.domain.models.ProductType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class GetMenuUseCase /*@Inject constructor*/(private val menuApi: MenuApi) {
+class GetMenuUseCase @Inject constructor(private val menuApi: MenuApi) {
     suspend operator fun invoke(): List<ProductInfo> = withContext(Dispatchers.IO) {
         menuApi.getMenu().run {
-            var e = data?.mapNotNull { prod ->
-
-                //throw Exception(prod.toString())
+            data?.mapNotNull { prod ->
                 val type = when (prod.typeName) {
                     "Cake" -> ProductType.CAKE
                     "Cupcake" -> ProductType.CUPCAKE
@@ -32,7 +31,6 @@ class GetMenuUseCase /*@Inject constructor*/(private val menuApi: MenuApi) {
                     prod?.image
                 )
             } ?: emptyList()
-            e
         }
     }
 }

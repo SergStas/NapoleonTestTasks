@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sergstas.cupcakeapp.InfoActivity
 import com.sergstas.cupcakeapp.R
-import com.sergstas.cupcakeapp.di.provideMenuApi
 import com.sergstas.cupcakeapp.domain.GetMenuUseCase
 import com.sergstas.cupcakeapp.domain.models.ProductInfo
 import com.sergstas.cupcakeapp.domain.models.ProductType
@@ -18,6 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_menu.*
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MenuFragment: MenuView, MvpAppCompatFragment(R.layout.fragment_menu) {
@@ -33,11 +33,11 @@ class MenuFragment: MenuView, MvpAppCompatFragment(R.layout.fragment_menu) {
 
     private var _adapter: MenuAdapter? = null
 
-    /*@Inject*/
-    /*lateinit var useCase: GetMenuUseCase*/
+    @Inject
+    lateinit var useCase: GetMenuUseCase
     private val _presenter: MenuPresenter by moxyPresenter{
         MenuPresenter(
-            /*useCase*/GetMenuUseCase(provideMenuApi),
+            useCase,
             arguments?.getSerializable(TYPE_KEY) as ProductType
         )
     }
@@ -64,7 +64,7 @@ class MenuFragment: MenuView, MvpAppCompatFragment(R.layout.fragment_menu) {
     }
 
     override fun displayLoadingError(t: Throwable) {
-        Toast.makeText(context, "Error: ${t.message}", Toast.LENGTH_LONG).show()
+        Toast.makeText(context, "Error: ${t.message}", Toast.LENGTH_LONG).show() //TODO: smart processing
     }
 }
 
