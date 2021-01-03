@@ -4,23 +4,26 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sergstas.cupcakeapp.InfoActivity
+import com.sergstas.cupcakeapp.features.info.ui.InfoActivity
 import com.sergstas.cupcakeapp.R
 import com.sergstas.cupcakeapp.domain.ProductsUseCase
+import com.sergstas.cupcakeapp.domain.enums.ResponseStatus
 import com.sergstas.cupcakeapp.domain.models.ProductInfo
 import com.sergstas.cupcakeapp.domain.models.ProductType
 import com.sergstas.cupcakeapp.features.products.presentation.ProductsPresenter
 import com.sergstas.cupcakeapp.features.products.presentation.ProductsView
-import com.sergstas.cupcakeapp.features.order.OrderActivity
+import com.sergstas.cupcakeapp.features.order.ui.OrderActivity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_menu.*
+import kotlinx.android.synthetic.main.fragment_products.*
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
+import retrofit2.HttpException
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ProductsFragment: ProductsView, MvpAppCompatFragment(R.layout.fragment_menu) {
+class ProductsFragment: ProductsView, MvpAppCompatFragment(R.layout.fragment_products) {
     companion object {
         private const val TYPE_KEY = "TYPE_ARG"
 
@@ -46,7 +49,7 @@ class ProductsFragment: ProductsView, MvpAppCompatFragment(R.layout.fragment_men
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(menu_rv) {
+        with(products_rv) {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = ProductsAdapter( {
                 p -> startActivity(Intent(context, OrderActivity::class.java).apply {
@@ -65,7 +68,29 @@ class ProductsFragment: ProductsView, MvpAppCompatFragment(R.layout.fragment_men
     }
 
     override fun displayLoadingError(t: Throwable) {
-        Toast.makeText(context, "Error: ${t.message}", Toast.LENGTH_LONG).show() //TODO: smart processing
+        val text = getString(
+            when (t) {
+                is HttpException -> R.string.connectionError_http
+                else -> R.string.connectionError_unknown
+            }
+        )
+        Toast.makeText(context, text, Toast.LENGTH_LONG).show() //TODO: smart processing
+    }
+
+    override fun displayServerError(status: ResponseStatus) {
+        val text = getString(
+            when(status){
+                ResponseStatus.Undefined -> R.string.serverError_undefined
+                ResponseStatus.Fail -> R.string.serverError_fail
+
+                ResponseStatus.Ok -> R.string.serverError_ok
+        })
+        if (text != "")
+            Toast.makeText(context, text, Toast.LENGTH_LONG).show()
+    }
+
+    override fun showLoading(b: Boolean) {
+        products_progressBar.isVisible = b
     }
 }
 

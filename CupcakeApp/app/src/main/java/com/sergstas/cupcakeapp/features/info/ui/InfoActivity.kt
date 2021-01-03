@@ -1,11 +1,12 @@
-package com.sergstas.cupcakeapp
+package com.sergstas.cupcakeapp.features.info.ui
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.sergstas.cupcakeapp.R
 import com.sergstas.cupcakeapp.domain.models.ProductInfo
 import com.sergstas.cupcakeapp.domain.models.ProductType
-import com.sergstas.cupcakeapp.features.order.OrderActivity
+import com.sergstas.cupcakeapp.features.order.ui.OrderActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_info.*
 

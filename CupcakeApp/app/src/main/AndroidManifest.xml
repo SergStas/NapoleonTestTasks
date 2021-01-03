@@ -14,14 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainActivity">
+        <activity android:name=".features.menu.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".features.order.OrderActivity" />
-        <activity android:name=".InfoActivity" />
+        <activity android:name=".features.order.ui.OrderActivity" />
+        <activity android:name=".features.info.ui.InfoActivity" />
+        <activity android:name=".features.products.ui.ProductsMenuActivity" />
     </application>
 
 </manifest>

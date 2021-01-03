@@ -33,5 +33,9 @@
     <string name="form_toast_amountFormat">Неверный формат количества/массы</string>
     <string name="form_toast_amountIsNull">Пожалуйста, укажите количество/массу продукта</string>
     <string name="form_toast_nameIsNull">Пожалуйста, укажите свое имя</string>
-    <string name="draft_string">str const</string>
+    <string name="serverError_undefined">Не удалось установить соединение с сервером</string>
+    <string name="serverError_fail">Не удалось установить соединение с серверной базой данных</string>
+    <string name="serverError_ok" />
+    <string name="connectionError_http">Не удалось установить соединение: сервер недоступен</string>
+    <string name="connectionError_unknown">Не удалось установить соединение по причине неизвестной ошибки</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.sergstas.cupcakeapp.features.products.presentation
 
+import com.sergstas.cupcakeapp.domain.enums.ResponseStatus
 import com.sergstas.cupcakeapp.domain.models.ProductInfo
 import moxy.MvpView
 import moxy.viewstate.strategy.AddToEndStrategy
@@ -12,4 +13,10 @@ interface ProductsView: MvpView {
 
     @StateStrategyType(SkipStrategy::class)
     fun displayLoadingError(t: Throwable)
+
+    @StateStrategyType(SkipStrategy::class)
+    fun displayServerError(status: ResponseStatus)
+
+    @StateStrategyType(AddToEndStrategy::class)
+    fun showLoading(b: Boolean)
 }

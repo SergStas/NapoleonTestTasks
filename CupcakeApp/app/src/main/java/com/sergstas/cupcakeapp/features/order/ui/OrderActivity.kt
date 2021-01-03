@@ -1,10 +1,9 @@
-package com.sergstas.cupcakeapp.features.order
+package com.sergstas.cupcakeapp.features.order.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sergstas.cupcakeapp.R
 import com.sergstas.cupcakeapp.domain.models.ProductInfo
-import com.sergstas.cupcakeapp.features.order.ui.OrderFormFragment
 
 class OrderActivity: AppCompatActivity() {
     companion object {
